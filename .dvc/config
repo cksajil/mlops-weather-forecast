@@ -1,0 +1,6 @@
+[core]
+    autostage = true
+    remote = mlops-s3
+['remote "mlops-s3"']
+    url = s3://mlops-weather-forecast-cksajil/dvc-store
+    region = ap-south-1
