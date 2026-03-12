@@ -1,0 +1,39 @@
+regions:
+  technopark:
+    lat: 8.5574
+    lon: 76.8800
+    name: "Technopark, Thiruvananthapuram"
+  thampanoor:
+    lat: 8.4875
+    lon: 76.9525
+    name: "Thampanoor, Thiruvananthapuram"
+
+data:
+  variables:
+    - temperature_2m
+    - relative_humidity_2m
+    - precipitation
+    - wind_speed_10m
+  lookback_days: 365        # 1 year of historical data
+  timezone: "Asia/Kolkata"
+
+model:
+  window_size: 48           # hours of history fed into LSTM
+  horizon: 24               # hours ahead to forecast
+  lstm_units: 64
+  lstm_layers: 2
+  dropout: 0.2
+  batch_size: 32
+  epochs: 50
+  patience: 7               # early stopping
+  learning_rate: 0.001
+  test_split: 0.2
+
+evaluation:
+  quality_gate_min_improvement: 0.005   # new model must beat prod by 0.5%
+  drift_threshold: 0.15
+  degradation_multiplier: 2.0           # alert if 7d rolling MAE > 2x training MAE
+
+aws:
+  region: "ap-south-1"      # Mumbai — closest to Kerala
+  s3_bucket: "mlops-weather-forecast-sajilck"

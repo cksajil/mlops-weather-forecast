@@ -1,0 +1,38 @@
+# Data
+requests
+pandas
+numpy
+pyarrow
+
+# ML
+tensorflow
+scikit-learn
+
+# Pipeline
+dvc[s3]
+
+# Experiment tracking
+mlflow
+dagshub
+
+# Serving
+fastapi
+uvicorn
+pydantic
+
+# Monitoring
+evidently
+
+# LLM
+google-generativeai
+
+# App
+streamlit
+plotly
+
+# Dev / CI
+pytest
+ruff
+mypy
+httpx
+boto3
